@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Web real time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+    <script>
+        // call to socket.io server
+        var socket = io("http://10.0.0.30:3000");
+
+        socket.on('server-send-data', function(data){
+            $('#noidung').append('<p>'+data+'</p>');
+        });
+
+        $(document).ready(function(){
+            // alert('hello jquery');
+            $('#MrA').click(function(){
+                let text = $('#inputText').val();
+                socket.emit('client-send-data', text);
+                $('#inputText').val('');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Web real time</h1>
+    <div id="noidung"></div>
+    <input type="text" id="inputText" />
+    <button id="MrA">Click send</button>
+</body>
+</html>
