@@ -11,7 +11,7 @@
     <script src="main.js"></script> -->
     <script>
         // call to socket.io server
-        var socket = io("http://10.0.0.30:3000");
+        var socket = io("https://nakan-chat-web.herokuapp.com");
 
         socket.on('server-send-data', function(data){
             $('#noidung').append('<p>'+data+'</p>');

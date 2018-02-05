@@ -8,8 +8,8 @@ app.set('views', './views');
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-server.listen(3000, function(){
-    console.log('Server listen port 3000');
+server.listen(80, function(){
+    console.log('Server listen port 80');
 });
 
 io.on('connection', function(socket){
